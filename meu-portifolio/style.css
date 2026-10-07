@@ -1,0 +1,55 @@
+section div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+section article {
+    flex: 1 1 15rem;
+    max-width: 20rem;
+    paddind: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #f4efe8;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    section article {
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+}
+
+section article img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+section article h3 {
+    min-height: 3rem;
+    margin-bottom: 8px;
+}
+
+section article span {
+    margin-top: auto;
+}
+
+section article p {
+    margin: 4px 0;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+}

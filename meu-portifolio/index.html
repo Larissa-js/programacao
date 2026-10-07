@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cozy Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>The Cozy Library</h1>
+        <p>Uma biblioteca entre páginas, histórias e mundos...</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Minha biblioteca</h2>
+
+            <select id="filtro-status">
+                <option value="todos">Todos</option>
+                <option value="Lido">Lido</option>
+                <option value="Quero ler">Quero ler</option>
+            </select>
+
+            <input
+                type="text"
+                id="busca"
+                placeholder="Buscar livro..."
+            >
+            
+            <button id="botao-lidos">Mostrar apenas lidos</button>
+            <button id="botao-todos">Mostrar todos</button>
+            <button id="botao-ordenar">Ordenar por nota</button>
+            <div class="livros-container"></div>
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
