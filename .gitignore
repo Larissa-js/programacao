@@ -1,3 +1,4 @@
 .DS_Store
 meu-portifolio/.venv/
 meu-portifolio/__pycache__/
+meu-portifolio/database.db
