@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 
 app = Flask(__name__)
@@ -25,6 +25,22 @@ def inicio():
         livros = [dict(livro)for livro in cursor.fetchall()]
 
     return render_template("index.html", livros=livros)
+
+@app.route("/adicionar", methods=["POST"])
+def adicionar_livro():
+    titulo = request.form["titulo"]
+    autor = request.form["autor"]
+    nota = request.form["nota"]
+    status = request.form["status"]
+    imagem = request.form["imagem"]
+
+    with sqlite3.connect("database.db") as conexao:
+        conexao.execute("""
+            INSERT INTO livros (titulo, autor, nota, status, imagem)
+            VALUES (?, ?, ?, ?, ?)
+        """, (titulo, autor, nota, status, imagem))
+
+    return redirect(url_for("inicio"))
 
 if __name__ == "__main__":
     criar_banco()
