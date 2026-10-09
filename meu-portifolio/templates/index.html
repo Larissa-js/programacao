@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cozy Library</title>
-    <link rel="stylesheet"href="{{ url_for('static', filename='style.css') }}"">
+    <link rel="stylesheet"href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
@@ -15,11 +15,7 @@
     <main>
         <section>
             <h2>Minha biblioteca</h2>
-            <h2>Livros vindo do banco de dados:</h2>
-
-            {% for livro in livros %}
-                <p>{{ livro }}</p>
-            {% endfor %}
+            
 
             <select id="filtro-status">
                 <option value="todos">Todos</option>
@@ -40,6 +36,10 @@
 
         </section>
     </main>
+    <script>
+        window.livrosDoBanco = {{ livros | tojson }};
+    </script>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

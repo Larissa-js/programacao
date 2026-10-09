@@ -18,9 +18,11 @@ def criar_banco():
 @app.route("/")
 def inicio():
     with sqlite3.connect("database.db") as conexao:
+        conexao.row_factory = sqlite3.Row
+
         cursor = conexao.cursor()
         cursor.execute("SELECT * FROM livros")
-        livros = cursor.fetchall()
+        livros = [dict(livro)for livro in cursor.fetchall()]
 
     return render_template("index.html", livros=livros)
 

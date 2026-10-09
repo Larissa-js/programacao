@@ -1,37 +1,5 @@
-const livros = [
-    {
-        titulo: "Jane Eyre",
-        autor: "Charlotte Brontë",
-        nota: 5,
-        status: "Quero ler",
-        imagem: "https://placehold.co/400x600?text=Jane+Eyre"
-    },
+const livros = window.livrosDoBanco;
 
-    {
-        titulo: "Orgulho e Preconceito",
-        autor: "Jane Austen",
-        nota: 4.5,
-        status: "Lido",
-        imagem: "https://placehold.co/400x600?text=Orgulho+e+Preconceito"
-    },
-
-    {
-        titulo: "Corte de Espinhos e Rosas",
-        autor: "Sarah J Maas",
-        nota: 5,
-        status: "Quero ler",
-        imagem: "https://placehold.co/400x600?text=Corte+de+Espinhos+e+Rosas"
-    },
-
-    {
-        titulo: "Morro dos Ventos Uivantes",
-        autor: "Emily Brontë",
-        nota: 5,
-        status: "Lido",
-        imagem: "https://placehold.co/400x600?text=Morro+dos+Ventos+Uivantes"
-    }
-
-];
 
 const container = document.querySelector(".livros-container");
 
