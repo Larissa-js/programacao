@@ -42,6 +42,18 @@ def adicionar_livro():
 
     return redirect(url_for("inicio"))
 
+@app.route("/alterar-status/<int:livro_id>", methods=["POST"])
+def alterar_status(livro_id):
+    novo_status = request.form["status"]
+
+    with sqlite3.connect("database.db") as conexao:
+        conexao.execute("""
+            UPDATE livros
+            SET status = ?
+            WHERE id = ?
+        """, (novo_status, livro_id))
+    return redirect(url_for("inicio"))
+
 if __name__ == "__main__":
     criar_banco()
     app.run(debug=True)

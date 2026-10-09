@@ -9,15 +9,33 @@ function mostrarLivros(lista) {
     lista.forEach((livro) => {
         const article = document.createElement("article");
 
-        article.innerHTML = `
-            <img src="${livro.imagem}" alt="Capa de ${livro.titulo}">
-            <h3>${livro.titulo}</h3>
-            <p>${livro.autor}</p>
-            <p>Nota: ${livro.nota}</p>
-            <span>${livro.status}</span>
-        `;
+        const imagemLivro=
+            livro.imagem || "https://placehold.co/400x600?text=Sem+Capa";
 
-        container.appendChild(article);
+        const novoStatus = 
+            livro.status === "Lido" ? "Quero ler" : "Lido";
+
+            article.innerHTML = `
+                <img src="${imagemLivro}" alt="Capa de ${livro.titulo}">
+                <h3>${livro.titulo}</h3>
+                <p>${livro.autor}</p>
+                <p>Nota: ${livro.nota}</p>
+                span>${livro.status}</span>
+
+                <form action="/alterar-status/${livro.id}" method="POST">
+                    <input
+                        type="hidden"
+                        name="status"
+                        value="${novoStatus}"
+                    >
+
+                    <button type="submit">
+                        Marcar como ${novoStatus}
+                    </button>
+                </form>
+            `;
+
+            container.appendChild(article);
     });
 }
 
