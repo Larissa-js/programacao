@@ -20,7 +20,7 @@ function mostrarLivros(lista) {
                 <h3>${livro.titulo}</h3>
                 <p>${livro.autor}</p>
                 <p>Nota: ${livro.nota}</p>
-                span>${livro.status}</span>
+                <span>${livro.status}</span>
 
                 <form action="/alterar-status/${livro.id}" method="POST">
                     <input
@@ -33,6 +33,10 @@ function mostrarLivros(lista) {
                         Marcar como ${novoStatus}
                     </button>
                 </form>
+
+                <form action="/excluir/${livro.id}" method="POST">
+                    <button type="submit">Excluir</button>
+                </form>
             `;
 
             container.appendChild(article);
@@ -40,10 +44,6 @@ function mostrarLivros(lista) {
 }
 
 mostrarLivros(livros);
-
-const filtroStatus = document.querySelector("#filtro-status");
-
-filtroStatus.addEventListener("change", aplicarFiltros);
 
 const botaoLidos = document.querySelector("#botao-lidos");
 
@@ -78,18 +78,14 @@ campoBusca.addEventListener("input", aplicarFiltros);
 
 function aplicarFiltros() {
     const textoDigitado = campoBusca.value.toLowerCase();
-    const statusSelecionado = filtroStatus.value;
 
     const resultado = livros.filter((livro) => {
         const combinaBusca =
             livro.titulo.toLowerCase().includes(textoDigitado) ||
             livro.autor.toLowerCase().includes(textoDigitado);
+        
+        return combinaBusca;
 
-        const combinaStatus =
-            statusSelecionado === "todos" ||
-            livro.status === statusSelecionado;
-
-        return combinaBusca && combinaStatus;
     });
 
     mostrarLivros(resultado);

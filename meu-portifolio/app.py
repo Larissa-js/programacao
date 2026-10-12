@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
+from livereload import Server
 
 app = Flask(__name__)
 def criar_banco():
@@ -54,6 +55,23 @@ def alterar_status(livro_id):
         """, (novo_status, livro_id))
     return redirect(url_for("inicio"))
 
+@app.route("/excluir/<int:livro_id>", methods=["POST"])
+def excluir_livros(livro_id):
+    with sqlite3.connect("database.db") as conexao:
+        conexao.execute("""
+            DELETE FROM livros
+            WHERE id = ?
+        """, (livro_id,))
+    return redirect(url_for("inicio"))
+
 if __name__ == "__main__":
     criar_banco()
-    app.run(debug=True)
+    
+    app.debug = True
+
+    server = Server(app.wsgi_app)
+
+    server.watch("templates/")
+    server.watch("static/")
+
+    server.serve(port=5000, debug=True)
