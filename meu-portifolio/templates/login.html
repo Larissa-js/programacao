@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar \ The Cozy Library</title>
+</head>
+
+<body>
+
+    <main>
+
+        <h1>The Cozy Library</h1>
+        <p>Sua bliblioteca, do seu jeito</p>
+
+        <div>
+            <button type="button" id="botao-login">
+                Entrar
+            </button>
+
+            <button type="button" id="botao-cadastro">
+                Criar conta
+            </button>
+        </div>
+
+        <!--LOGIN-->
+
+        <form
+            id="form-login"
+            action="/login"
+            method="POST"
+        >
+            <h2>Entrar</h2>
+
+            <label for="login-email">E-mail</label>
+
+            <input
+                type="email"
+                id="login-email"
+                name="email"
+                required
+            >
+
+            <label for="login-senha">Senha</label>
+
+            <input
+                type="password"
+                id="login-senha"
+                name="senha"
+                required
+            >
+            
+            <button type="submit">
+                Entrar
+            </button>
+
+        </form>
+
+        <!--CADASTRO-->
+
+        <form
+            id="form-cadastro"
+            action="/cadastro"
+            method="POST"
+            hidden
+        >
+
+            <h2>Criar conta</h2>
+
+            <label for="nome">Nome</label>
+
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                required
+            >
+
+            <label for="cadastro-email">E-mail</label>
+
+            <input
+                type="email"
+                id="cadastro-email"
+                name="email"
+                required 
+            >
+            
+            <label for="cadastro-senha">Senha</label>
+
+            <input
+                type="password"
+                id="cadastro-senha"
+                name="senha"
+                required
+            >
+
+            <button type="submit">
+                Criar conta
+            </button>
+        </form>   
+
+    </main>
+    <script>
+
+        const botaoLogin =
+            document.querySelector("#botao-login");
+
+        const botaoCadastro =
+            document.querySelector("#botao-cadastro");
+        
+        const formLogin =
+            document.querySelector("#form-login");
+            
+        const formCadastro =
+            document.querySelector("#form-cadastro"); 
+            
+        botaoLogin.addEventListener("click", function () {
+
+            formLogin.hidden = false;
+            formCadastro.hidden = true;
+
+        });
+        
+        botaoCadastro.addEventListener("click", function () {
+
+            formLogin.hidden = true;
+            formCadastro.hidden = false;
+
+        });
+    </script>
+
+</body>
+</html>
