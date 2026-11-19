@@ -32,7 +32,7 @@ def criar_banco():
         """)
         conexao.execute("""
             CREATE TABLE IF NOT EXISTS usuarios (
-                id INTERGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
                 nome TEXT NOT NULL,
                 email TEXT NOT NULL UNIQUE,
                 senha_hash TEXT NOT NULL
@@ -41,7 +41,7 @@ def criar_banco():
         conexao.execute("""
             ALTER TABLE livros
             ADD COLUMN IF NOT EXISTS usario_id
-            INTERGER REFERENCES usuarios(id)
+            INTEGER REFERENCES usuarios(id)
         """)
 
 
@@ -176,6 +176,26 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/alterar-nota/<int:livro_id>", methods=["POST"])
+def alterar_nota(livro_id):
+    if "usuario_id" not in session:
+        return redirect(url_for("login"))
+
+    nova_nota = request.form["nota"] or None
+
+    with conectar_banco() as conexao:
+        conexao.execute("""
+            UPDATE livros
+            SET nota = %s
+            WHERE id = %s
+            AND usuario_id = %s
+        """, (
+            nova_nota,
+            livro_id,
+            session["usuario_id"]
+        ))
+
+    return redirect(url_for("inicio"))
 
 if __name__ == "__main__":
     criar_banco()

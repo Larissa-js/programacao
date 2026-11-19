@@ -1,3 +1,117 @@
+/* PALETA 1 - quente / outonal */
+
+[data-theme="paleta1"] {
+    --cor-fundo: #280B0F;
+    --cor-card: #3B1319;
+    --cor-destaque: #8D3A3C;
+    --cor-secundaria: #7B694E;
+    --cor-clara: #C6B39A;
+
+    --cor-texto: #F2E6D8;
+    --cor-texto-suave: #C6B39A;
+    --cor-input: #F3E8DC;
+    --cor-input-texto: #3B1319;
+}
+
+/* PALETA 2 — biblioteca botânica */
+
+[data-theme="paleta2"] {
+    --cor-fundo: #533B26;
+    --cor-card: #525844;
+    --cor-destaque: #5E233C;
+    --cor-secundaria: #886945;
+    --cor-clara: #CDBF98;
+    --cor-rosa: #AB8C99;
+
+    --cor-texto: #F0E7D2;
+    --cor-texto-suave: #CDBF98;
+    --cor-input: #EEE5D0;
+    --cor-input-texto: #3B3026;
+}
+
+/* PALETA 3 — dark academia */
+
+[data-theme="paleta3"] {
+    --cor-fundo: #1E2A20;
+    --cor-card: #53283E;
+    --cor-destaque: #512027;
+    --cor-secundaria: #563624;
+    --cor-clara: #D5C4A1;
+    --cor-verde: #64786E;
+
+    --cor-texto: #F1E8D4;
+    --cor-texto-suave: #D5C4A1;
+    --cor-input: #EFE5CF;
+    --cor-input-texto: #33251F;
+}
+
+.livro-cabecalho {
+    margin-top: 14px;
+}
+
+.livro-cabecalho h3 {
+    margin: 0;
+    line-height: 1.15;
+}
+
+.status-livro {
+    padding: 4px 9px;
+
+    background-color: #ded0de;
+    color: #4b382d;
+
+    border-radius: 999px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.autor-livro {
+    margin: 4px 0 0;
+    line-height: 1.15;
+}
+
+.nota-atual {
+    margin: 8px 0 10px;
+}
+
+.form-nota {
+    display: flex;
+    gap: 8px;
+
+    margin: 6px 0 4px;
+}
+
+.form-nota input[type="number"] {
+    width: 90px;
+    padding: 9px 10px;
+
+    border: 1px solid #ad927d;
+    border-radius: 8px;
+
+    background-color: #fffaf4;
+    color: #4b382d;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    box-sizing: border-box;
+}
+
+.form-nota button {
+    flex: 1;
+
+    background-color: transparent;
+    color: #594236;
+
+    border: 1px solid #8f7766;
+}
+
+.form-nota button:hover {
+    background-color: #ded0bf;
+}
+
+
 .livros-container {
     display: flex;
     flex-wrap: wrap;
@@ -17,9 +131,7 @@ body {
 header {
     max-width: 1200px;
     margin: 0 auto 24px;
-    padding: 32px;
-
-    text-align: center;
+    padding: 24px 32px 32px;
 
     background-color: #342820;
     color: #f4efe8;
@@ -37,7 +149,7 @@ header p {
     color: #d8c7b4;
 }
 
-section {
+.biblioteca {
     max-width: 1200px;
     margin: 0 auto;
     padding: 28px;
@@ -46,11 +158,11 @@ section {
     border-radius: 16px;
 }
 
-section h2 {
+.biblioteca h2 {
     color: #4b382d;
 }
 
-section article {
+.biblioteca article {
     flex: 1 1 15rem;
     max-width: 20rem;
     padding: 20px;
@@ -64,12 +176,12 @@ section article {
     border: 1px solid #c9b29e;
     border-radius: 12px;
 
-    box-shadow: o 6px 18px rgba(55, 39, 30, 0.12);
+    box-shadow: 0 6px 18px rgba(55, 39, 30, 0.12);
 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-section article:hover {
+.biblioteca article:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 24px rgba(55, 39, 30, 0.18);
 }
@@ -151,7 +263,7 @@ section article:hover {
     color: white;
 }
 
-section article img {
+.biblioteca article img {
     width: 100%;
     aspect-ratio: 2 / 3;
     object-fit: cover;
@@ -159,39 +271,11 @@ section article img {
     border-radius: 8px;
 }
 
-section article h3 {
-    min-height: 3rem;
-    margin: 16px 0px;
-
-    color: #3f2f27;
-    font-size: 1.25rem;
-}
-
-section article span {
-    margin-top: auto;
-    padding: 6px 10px;
-
-    align-self: flex-start;
-
-    background-color: #ded0de;
-    color: #4b382d;
-
-    border-radius: 20px;
-
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-section article p {
-    margin: 4px 0;
-    color: #695548;
-}
-
-section article form {
+.biblioteca article form {
     margin-top: 12px;
 }
 
-section article form button {
+.biblioteca article form button {
     width: 100%;
     padding: 10px 12px;
 
@@ -205,13 +289,286 @@ section article form button {
     cursor: pointer;
 }
 
-section article form button:hover {
+.biblioteca article form button:hover {
     background-color: #3f2f27;
 }
 
-@media (max-width: 600px) {
-    section article {
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .usuario-logado {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+    }
+
+    .biblioteca {
+        padding: 18px;
+    }
+
+    .biblioteca article {
         max-width: 100%;
         flex-basis: 100%;
     }
+
+    .form-nota {
+        flex-direction: column;
+    }
+
+    .form-nota input[type="number"] {
+        width: 100%;
+    }
+}
+
+/* ------ AUTENTICAÇÃO ------ */
+
+.pagina-auth {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 24px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.pagina-container {
+    width: 100%;
+    max-width: 760px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.auth-apresentacao {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.auth-detalhe {
+    display: block;
+    margin-bottom: 12px;
+
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: var(--cor-clara);
+}
+
+.auth-apresentacao h1 {
+    margin: 0 0 16px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: normal;
+    line-height: 1;
+
+    color: var(--cor-texto);
+}
+
+.auth-apresentacao p {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px;
+
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+
+    color: var(--cor-texto-suave);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+
+    margin: 0;
+    padding: 32px;
+    box-sizing: border-box;
+
+    background-color: var(--cor-card);
+
+    border: 1px solid var(--cor-secundaria);
+    border-radius: 22px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.auth-abas {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4px;
+    margin-bottom: 30px;
+    padding: 4px;
+
+    background-color: var(--cor-fundo);
+
+    border: 1px solid var(--cor-secundaria);
+    border-radius: 12px;
+}
+
+.auth-aba {
+    padding: 12px 16px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: transparent;
+    color: var(--cor-texto-suave);
+
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease;
+}
+
+.auth-aba:hover {
+    color: var(--cor-texto);
+}
+
+.auth-aba.ativo {
+    background-color: var(--cor-clara);
+    color: var(--cor-input-texto);
+}
+
+.auth-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    text-align: left;
+}
+
+.auth-form[hidden] {
+    display: none;
+}
+
+.auth-form h2 {
+    margin: 0 0 24px;
+
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+
+    color: var(--cor-texto);
+}
+
+.auth-form label {
+    margin: 0 0 7px;
+
+    font-family: Arial, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+
+    color: var(--cor-texto);
+}
+
+.auth-form input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+    margin-bottom: 17px;
+
+    border: 1px solid var(--cor-secundaria);
+    border-radius: 10px;
+
+    background-color: var(--cor-input);
+    color: var(--cor-input-texto);
+
+    font-size: 1rem;
+}
+
+.auth-form input:focus {
+    outline: 2px solid var(--cor-destaque);
+}
+
+.auth-form button[type="submit"] {
+    width: 100%;
+
+    margin-top: 5px;
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto);
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.usuario-logado {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 18px;
+    
+    color: #d8c7b4;
+    font-size: 0.9rem;
+}
+
+.botao-sair {
+    padding: 7px 14px;
+
+    border: 1px solid #8f7766;
+    border-radius: 999px;
+
+    color: #f4efe8;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.botao-sair:hover {
+    background-color: #715747;
+    color: #342820;
+}
+
+.titulo-site {
+    text-align: center;
+}
+
+.titulo-site h1 {
+    margin: 0 0 8px;
+    font-size: 2.5rem;
+}
+
+.titulo-site p {
+    margin: 0;
+    color: #d8c7b4;
 }

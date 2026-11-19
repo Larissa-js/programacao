@@ -8,16 +8,18 @@
 </head>
 <body>
     <header>
-        <h1>The Cozy Library</h1>
-        <p>Uma biblioteca entre páginas, histórias e mundos...</p>
         <div class="usuario-logado">
-        <span>Bem-vindo(a), {{ usuario_nome }} ♡</span>
-        <a href="/logout">Sair</a>
+            <span>Olá, {{ usuario_nome }}!</span>
+            <a href="/logout" class="botao-sair">Sair</a>
+        </div>
+        <div class="titulo-site">
+            <h1>The Cozy Library</h1>
+            <p>Uma biblioteca entre páginas, histórias e mundos...</p>
         </div>
     </header>
 
     <main>
-        <section>
+        <section class="biblioteca">
             <h2>Minha biblioteca</h2>
 
             <form
